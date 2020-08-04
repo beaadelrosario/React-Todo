@@ -1,7 +1,6 @@
 import React from 'react';
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
-
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -9,76 +8,68 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ],
-      todo:''
+      formValue:'',
+      todos: [],
     };
-  }
-
-  addTodo = event => {
-    event.preventDefault();
+  };
+  addTodo = todoName => {
     const newTodo = {
-      task: this.state.todo,
-      id: Date.now(),
+      task: todoName,
+      id: Date.now(), // or Math.random() works
       completed: false,
     };
     this.setState({
       todos: [...this.state.todos, newTodo],
-      todo: ''
     });
   };
-
-  changeTodo = event => this.setState ({
-    [event.target.name]: event.target.vaue
-  });
-
+  changeTodo = e => {
+    let value = e.target.value
+    this.setState({
+      formValue: value 
+    })
+  };
+  onSubmit = e => {
+    e.preventDefault()
+    this.addTodo(this.state.formValue);
+    this.setState({
+      formValue: ""
+    })
+  };
   toggleTodoCompleted = id => {
-    let todos = this.state.todos.slice();
-    todos = todos.map(todo => {
-      if(todo.id === id) {
-        todo.completed =  !todo.completed;
-        return todo;
-      }else {
-        return todo;
-      }
-    });
-    this.setState({todos});
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if(todo.id === id) {
+          return {...todo, completed: !todo.completed}
+        } else {
+          return todo;
+        }
+      })
+    })
   };
-
   clearCompleted = event => {
     event.preventDefault();
-    let todos = this.state.todos.filter(item =>
-      !item.completed);
-      this.setState({todos});
+    this.setState({
+      todos: this.state.todos.filter(item =>
+        item.completed === false)
+    })
   }
-
+  
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm
-        value={this.state.todo}
-        handleTodoChange={this.changeTodo}
-        handleAddTodo={this.newTodo}
-        handleClearTodos={this.clearCompleted}
+        formValue={this.state.formValue}
+        changeTodo={this.changeTodo}
+        clearCompleted={this.clearCompleted}
+        onSubmit={this.onSubmit}
         />
         <TodoList
         todos={this.state.todos}
-        handleToggleCompleted={this.toggleTogoCompleted}
+        toggleTodoCompleted={this.toggleTodoCompleted}
         />
       </div>
     );
   }
 }
-
 export default App;

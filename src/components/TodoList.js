@@ -7,9 +7,11 @@ const TodoList = props => {
     return (
         <div>
             {props.todos.map(item => (
-                <Todo handleToggleCompleted={props.handleToggleCompleted}
+                <Todo
                 key={item.id}
-                todo={item} />
+                todo={item}
+                toggleTodoCompleted={props.toggleTodoCompleted} 
+                />
             ))}
         </div>
     )
