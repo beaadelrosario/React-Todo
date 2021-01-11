@@ -56,8 +56,9 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
-        <h2>Welcome to your To-Do App!</h2>
+      <div id="main">
+        <h1>Checklist</h1>
+        <p id="headline">Crossing off completed tasks never felt so good!</p>
         <TodoForm
         formValue={this.state.formValue}
         changeTodo={this.changeTodo}

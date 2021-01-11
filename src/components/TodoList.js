@@ -5,7 +5,7 @@ import Todo from './Todo'
 
 const TodoList = props => {
     return (
-        <div>
+        <ul>
             {props.todos.map(item => (
                 <Todo
                 key={item.id}
@@ -13,7 +13,7 @@ const TodoList = props => {
                 toggleTodoCompleted={props.toggleTodoCompleted} 
                 />
             ))}
-        </div>
+        </ul>
     )
 }
 
