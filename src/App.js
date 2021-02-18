@@ -1,6 +1,6 @@
-import React from 'react';
-import TodoForm from './components/TodoForm'
-import TodoList from './components/TodoList'
+import React from "react";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -8,11 +8,11 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      formValue:'',
+      formValue: "",
       todos: [],
     };
-  };
-  addTodo = todoName => {
+  }
+  addTodo = (todoName) => {
     const newTodo = {
       task: todoName,
       id: Date.now(), // or Math.random() works
@@ -22,53 +22,53 @@ class App extends React.Component {
       todos: [...this.state.todos, newTodo],
     });
   };
-  changeTodo = e => {
-    let value = e.target.value
+  changeTodo = (e) => {
+    let value = e.target.value;
     this.setState({
-      formValue: value 
-    })
+      formValue: value,
+    });
   };
-  onSubmit = e => {
-    e.preventDefault()
+  onSubmit = (e) => {
+    e.preventDefault();
     this.addTodo(this.state.formValue);
     this.setState({
-      formValue: ""
-    })
+      formValue: "",
+    });
   };
-  toggleTodoCompleted = id => {
+  toggleTodoCompleted = (id) => {
     this.setState({
-      todos: this.state.todos.map(todo => {
-        if(todo.id === id) {
-          return {...todo, completed: !todo.completed}
+      todos: this.state.todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed: !todo.completed };
         } else {
           return todo;
         }
-      })
-    })
+      }),
+    });
   };
-  clearCompleted = event => {
+  clearCompleted = (event) => {
     event.preventDefault();
     this.setState({
-      todos: this.state.todos.filter(item =>
-        item.completed === false)
-    })
-  }
-  
+      todos: this.state.todos.filter((item) => item.completed === false),
+    });
+  };
+
   render() {
     return (
       <div id="main">
-        <h1>Checklist</h1>
+        <h1>to do list</h1>
         <p id="headline">Crossing off completed tasks never felt so good!</p>
+        <br></br>
         <TodoForm
-        formValue={this.state.formValue}
-        changeTodo={this.changeTodo}
-        clearCompleted={this.clearCompleted}
-        onSubmit={this.onSubmit}
+          formValue={this.state.formValue}
+          changeTodo={this.changeTodo}
+          clearCompleted={this.clearCompleted}
+          onSubmit={this.onSubmit}
         />
-        <TodoList
-        todos={this.state.todos}
-        toggleTodoCompleted={this.toggleTodoCompleted}
-        />
+          <TodoList
+            todos={this.state.todos}
+            toggleTodoCompleted={this.toggleTodoCompleted}
+          />
       </div>
     );
   }

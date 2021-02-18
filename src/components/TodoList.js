@@ -5,6 +5,7 @@ import Todo from './Todo'
 
 const TodoList = props => {
     return (
+        <div id="listcontainer">
         <ul>
             {props.todos.map(item => (
                 <Todo
@@ -14,6 +15,7 @@ const TodoList = props => {
                 />
             ))}
         </ul>
+        </div>
     )
 }
 
