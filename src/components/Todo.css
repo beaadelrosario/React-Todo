@@ -50,7 +50,7 @@ ul {
     font-family: serif;
     letter-spacing: .5px;
     color: rgb(88, 88, 88);
-    line-height: 0em;
+    line-height: 1em;
 }
 .aboutHeadline {
     font-size: large;
