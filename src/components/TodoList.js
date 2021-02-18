@@ -11,7 +11,7 @@ const TodoList = props => {
                 <Todo
                 key={item.id}
                 todo={item}
-                toggleTodoCompleted={props.toggleTodoCompleted} 
+                toggleTodoCompleted={props.toggleTodoCompleted}
                 />
             ))}
         </ul>

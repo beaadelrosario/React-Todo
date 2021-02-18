@@ -1,6 +1,7 @@
 import React from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -9,7 +10,7 @@ class App extends React.Component {
     super();
     this.state = {
       formValue: "",
-      todos: [],
+      todos: []
     };
   }
   addTodo = (todoName) => {
@@ -56,8 +57,9 @@ class App extends React.Component {
   render() {
     return (
       <div id="main">
-        <h1>to do list</h1>
-        <p id="headline">Crossing off completed tasks never felt so good!</p>
+        <h1>Checklist</h1>
+        <p className="aboutHeadline">Crossing off completed tasks never felt so good!</p>
+        <p className="about">Add as many daily tasks to your list. Click each task once you've completed it. #GetItDone!</p>
         <br></br>
         <TodoForm
           formValue={this.state.formValue}

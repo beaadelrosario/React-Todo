@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react";
 
-const TodoForm = props => {
-    // console.log(props.formValue)
+const TodoForm = (props) => {
+  // console.log(props.formValue)
+
   return (
     <form onSubmit={props.onSubmit}>
       <input
@@ -11,7 +12,7 @@ const TodoForm = props => {
         onChange={props.changeTodo}
       />
       <button>Add</button>
-      <button onClick={props.clearCompleted}>New List</button>
+      <button onClick={props.clearCompleted} >Clear Completed</button>
     </form>
   );
 };

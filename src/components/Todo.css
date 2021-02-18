@@ -44,11 +44,20 @@ ul {
     margin-left: .6em;
     margin-top: 2em;
 }
-#headline {
+.about {
+    font-size: medium;
+    font-style: italic;
+    font-family: serif;
+    letter-spacing: .5px;
+    color: rgb(88, 88, 88);
+    line-height: 0em;
+}
+.aboutHeadline {
     font-size: large;
     font-style: italic;
     font-family: serif;
     letter-spacing: .5px;
+    text-transform: uppercase;
 }
 .todoListItem {
     text-align: left;
