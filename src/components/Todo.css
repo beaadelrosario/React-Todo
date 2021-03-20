@@ -1,0 +1,67 @@
+* {
+    background-color: rgb(253, 251, 214);
+}
+main {
+    width: 80%;
+}
+.completed {
+    text-decoration: line-through;
+    color:grey;
+}
+h1 {
+    font-family: 'League Script', cursive;
+    font-size: 80px;
+    align-self: center;
+    margin-top: 5%;
+    margin-bottom: .1em;
+}
+form {
+    flex-direction: column;
+}
+div {
+    margin-left: 1em;
+}
+input {
+    width:25em;
+    background-color: white;
+    font-size: medium;
+    font-family: serif;
+    text-align: start;
+    letter-spacing: .5px;
+}
+button {
+    background-color: white;
+    font-family: serif;
+    font-size: medium;
+}
+ul {
+    width: fit-content;
+    list-style-type: square;
+    list-style-position: outside;
+    padding: 0;
+    font-size: medium;
+    font-family: serif;
+    text-align: start;
+    letter-spacing: .5px;
+    text-align: left;
+    margin-left: .6em;
+    margin-top: 2em;
+}
+.about {
+    font-size: medium;
+    font-style: italic;
+    font-family: serif;
+    letter-spacing: .5px;
+    color: rgb(88, 88, 88);
+    line-height: 1em;
+}
+.aboutHeadline {
+    font-size: large;
+    font-style: italic;
+    font-family: serif;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+.todoListItem {
+    text-align: left;
+}
